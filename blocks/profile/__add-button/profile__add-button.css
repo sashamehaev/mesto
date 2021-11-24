@@ -7,6 +7,11 @@
     background-color: black;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.profile__add-button:hover {
+    opacity: .6;
 }
 
 @media screen and (max-width: 767px) {

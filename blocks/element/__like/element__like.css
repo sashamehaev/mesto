@@ -1,3 +1,8 @@
 .element__like {
     color: #fff;
+    cursor: pointer;
+}
+
+.element__like:hover {
+    opacity: .5;
 }

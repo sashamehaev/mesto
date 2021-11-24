@@ -1,6 +1,9 @@
 .root {
+    display: flex;
+    flex-direction: column;
     max-width: 880px;
     min-width: 320px;
+    justify-content: center;
     font-family: 'Inter', sans-serif;
     background-color: #000;
     -moz-osx-font-smoothing: grayscale;
