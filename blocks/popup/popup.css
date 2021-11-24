@@ -1,5 +1,5 @@
 .popup {
-    display: flex;
+    display: none;
     width: 100%;
     min-width: 320px;
     height: 100%;
@@ -9,5 +9,4 @@
     right: 0;
     align-items: center;
     justify-content: center;
-    
 }
