@@ -18,14 +18,14 @@
           <div class="profile__info">
             <div class="profile__info-container">
               <h1 class="profile__header">Жак-Ив Кусто</h1>
-              <button type="submit" class="profile__edit-button">
+              <button type="button" class="profile__edit-button">
                 <img src="images/edit-button.svg" alt="не удалось загрузить изображение" class="profile__edit-button-img">
               </button>
             </div>
             <p class="profile__title">Исследователь океана</p>
           </div>
         </div>
-        <button type="submit" class="profile__add-button">
+        <button type="button" class="profile__add-button">
           <img src="images/add-button.svg" alt="не удалось загрузить изображение" class="profile__add-button-img">
         </button>
       </section>
@@ -35,7 +35,7 @@
           <img src="images/karachaevsk.png" alt="не удалось загрузить изображение" class="element__image">
           <div class="element__description">
             <h2 class="element__title">Карачаевск</h2>
-            <button type="submit" class="element__like"></button>
+            <button type="button" class="element__like"></button>
           </div>
         </div>
         <div class="element">
@@ -83,7 +83,7 @@
     <div class="popup">
       <div class="popup__container">
         <button type="button" class="popup__close"></button>
-        <form name="popup">
+        <form class="popup__form" name="edit-profile">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input type="text" name="name" value="Жак-Ив Кусто" class="popup__text popup__text_type_heading">
           <input type="text" name="job" value="Исследователь океана" class="popup__text popup__text_type_title">
