@@ -1,4 +1,4 @@
-.profile__header {
+.profile__name {
     margin: 0;
     max-width: 400px;
     color: #fff;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .profile__header {
+    .profile__name {
         max-width: calc(282px - 18px - 18px);
         font-size: 27px;
         line-height: 33px;

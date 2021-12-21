@@ -1,4 +1,4 @@
-.profile__title {
+.profile__job {
     margin: 0;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .profile__title {
+    .profile__job {
         max-width: 282px;
         font-size: 14px;
         line-height: 17px;
