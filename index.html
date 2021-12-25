@@ -38,32 +38,28 @@
       <p class="footer__title">© 2021 Мехаев Александр</p>
     </footer>
     
-    <div class="popup">
-      <div class="popup__container">
-        
-        <button type="button" class="popup__close"></button> 
-      </div>
-    </div>
+    <div class="popup"></div>
 
-    <div class="popup-card">
-      <div class="popup-card__container">
-        
-        <button type="button" class="popup__close"></button>
-      </div>
-    </div>
+    <div class="popup-card"></div>
 
     <template id="popupCardImage">
-      <img alt="ошибка загрузки изображения" class="popup-card__image">
-      <p class="popup-card__place"></p>
+      <div class="popup-card__container">
+        <img alt="ошибка загрузки изображения" class="popup-card__image">
+        <p class="popup-card__place"></p>
+        <button type="button" class="popup__close"></button>
+      </div>
     </template>
 
     <template id="popupEditProfile">
-      <form class="popup__form" name="edit-profile">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" name="name" value="Жак-Ив Кусто" class="popup__text popup__text_type_name">
-        <input type="text" name="job" value="Исследователь океана" class="popup__text popup__text_type_job">
-        <input type="submit" value="Сохранить" class="popup__button">
-      </form>
+      <div class="popup__container">
+        <form class="popup__form" name="edit-profile">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input type="text" name="name" value="Жак-Ив Кусто" class="popup__text popup__text_type_name">
+          <input type="text" name="job" value="Исследователь океана" class="popup__text popup__text_type_job">
+          <input type="submit" value="Сохранить" class="popup__button">
+        </form>
+        <button type="button" class="popup__close"></button> 
+      </div>
     </template>
 
     <template id="card">
@@ -78,12 +74,15 @@
     </template>
 
     <template id="popupAddCard">
-      <form class="popup__form" name="add-card">
-        <h2 class="popup__title">Новое место</h2>
-        <input type="text" name="place" placeholder="Название" class="popup__text popup__text_type_place">
-        <input type="text" name="link" placeholder="Ссылка на картинку" class="popup__text popup__text_type_link">
-        <input type="submit" value="Сохранить" class="popup__button">
-      </form>
+      <div class="popup__container">
+        <form class="popup__form" name="add-card">
+          <h2 class="popup__title">Новое место</h2>
+          <input type="text" name="place" placeholder="Название" class="popup__text popup__text_type_place">
+          <input type="text" name="link" placeholder="Ссылка на картинку" class="popup__text popup__text_type_link">
+          <input type="submit" value="Сохранить" class="popup__button">
+        </form>
+        <button type="button" class="popup__close"></button> 
+      </div>
     </template>
     <script src="scripts/script.js"></script>
   </body>
