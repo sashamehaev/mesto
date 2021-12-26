@@ -44,12 +44,12 @@ addButton.addEventListener('click', function() {
   const cardTemplate=document.querySelector('#popupAddCard').content;
   const CardElement=cardTemplate.querySelector('.popup__container').cloneNode(true);
   //вставить шаблон в контейнер
-  popupContainer.append(CardElement);
+  popupContainer.prepend(CardElement);
   //открыть попап
   openPopup(popupContainer);
   //оживить кнопку "закрыть попап"
   activateClosingButton(CardElement, popupContainer);
-  //оживить кнопку "добавить карточку"
+  //оживить кнопку "сохранить"
   const form=CardElement.querySelector('.popup__form');
   form.addEventListener('submit', function(evt) {
     evt.preventDefault();
@@ -78,7 +78,7 @@ editButton.addEventListener('click', function() {
   popupName.value=name.textContent;
   popupJob.value=job.textContent;
   //отрисовываем попап
-  popupContainer.append(profileElement);
+  popupContainer.prepend(profileElement);
   openPopup(popupContainer);
   //оживляем кнопку "сохранить"
   const form=profileElement.querySelector('.popup__form');
@@ -110,7 +110,7 @@ function initCard(link, name) {
     //вставить в попап значения из карточки
     popupCardElement.querySelector('.popup-card__image').setAttribute('src', link);
     popupCardElement.querySelector('.popup-card__place').textContent=name;
-    popupCardContainer.append(popupCardElement);
+    popupCardContainer.prepend(popupCardElement);
     //показать попап
     openPopup(popupCardContainer);
     //оживить кнопку "закрыть попап"
@@ -121,7 +121,7 @@ function initCard(link, name) {
   //оживить кнопку "удалить карточку"
   activateDump(cardElement);
   //вставить карточку в контейнер
-  cardContainer.append(cardElement);
+  cardContainer.prepend(cardElement);
 }
 
 function openPopup(popup) {
