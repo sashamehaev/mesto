@@ -30,29 +30,15 @@
         </button>
       </section>
 
-      <section class="elements">
-        
-      </section>
+      <section class="elements"></section>
     </main>
     <footer class="footer">
       <p class="footer__title">© 2021 Мехаев Александр</p>
     </footer>
     
-    <div class="popup"></div>
-
-    <div class="popup-card"></div>
-
-    <template id="popupCardImage">
-      <div class="popup-card__container">
-        <img alt="ошибка загрузки изображения" class="popup-card__image">
-        <p class="popup-card__place"></p>
-        <button type="button" class="popup__close"></button>
-      </div>
-    </template>
-
-    <template id="popupEditProfile">
+    <div class="popup popup_type_edit">
       <div class="popup__container">
-        <form class="popup__form" name="edit-profile">
+        <form class="popup__form popup__form_type_edit" name="edit-profile">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input type="text" name="name" value="Жак-Ив Кусто" class="popup__text popup__text_type_name">
           <input type="text" name="job" value="Исследователь океана" class="popup__text popup__text_type_job">
@@ -60,28 +46,36 @@
         </form>
         <button type="button" class="popup__close"></button> 
       </div>
-    </template>
+    </div>
 
-    <template id="card">
-      <div class="element">
-        <img src="images/Trash.svg" class="element__delete">
-        <img alt="не удалось загрузить изображение" class="element__image">
-        <div class="element__description">
-          <h2 class="element__title"></h2>
-          <button type="button" class="element__like"></button>
-        </div>
-      </div>
-    </template>
-
-    <template id="popupAddCard">
+    <div class="popup popup_type_add">
       <div class="popup__container">
-        <form class="popup__form" name="add-card">
+        <form class="popup__form popup__form_type_add" name="add-card">
           <h2 class="popup__title">Новое место</h2>
           <input type="text" name="place" placeholder="Название" class="popup__text popup__text_type_place">
           <input type="text" name="link" placeholder="Ссылка на картинку" class="popup__text popup__text_type_link">
           <input type="submit" value="Сохранить" class="popup__button">
         </form>
         <button type="button" class="popup__close"></button> 
+      </div>
+    </div>
+
+    <div class="popup-card">
+      <div class="popup-card__container">
+        <img alt="ошибка загрузки изображения" class="popup-card__image">
+        <p class="popup-card__place"></p>
+        <button type="button" class="popup__close"></button>
+      </div>
+    </div>
+
+    <template id="card">
+      <div class="element">
+        <button class="element__delete"></button>
+        <img alt="не удалось загрузить изображение" class="element__image">
+        <div class="element__description">
+          <h2 class="element__title"></h2>
+          <button type="button" class="element__like"></button>
+        </div>
       </div>
     </template>
     <script src="scripts/script.js"></script>

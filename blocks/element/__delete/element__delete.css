@@ -7,4 +7,6 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    background-color: unset;
+    background-image: url('../../../images/Trash.svg');
 }
