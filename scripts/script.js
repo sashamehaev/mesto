@@ -2,7 +2,7 @@
 const popupEdit = document.querySelector('.popup_type_edit');
 const popupAdd = document.querySelector('.popup_type_add');
 const cardContainer=document.querySelector('.elements');
-const popupCard=document.querySelector('.popup-card');
+const popupCard=document.querySelector('.popup_type_card');
 
 const cardTemplate=document.querySelector('#card').content;
 
@@ -132,9 +132,9 @@ function initCard(link, name) {
   //оживить кнопку "открыть карточку"
   cardImage.addEventListener('click', function() {
     //вставить в попап значения из карточки
-    popupCard.querySelector('.popup-card__image').setAttribute('src', link);
-    popupCard.querySelector('.popup-card__image').setAttribute('alt', name);
-    popupCard.querySelector('.popup-card__place').textContent=name;
+    popupCard.querySelector('.popup__image').setAttribute('src', link);
+    popupCard.querySelector('.popup__image').setAttribute('alt', name);
+    popupCard.querySelector('.popup__place').textContent=name;
     openPopup(popupCard);
     //оживить кнопку "закрыть попап"
     const closingButton = popupCard.querySelector('.popup__close');
