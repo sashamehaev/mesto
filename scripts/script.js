@@ -137,8 +137,8 @@ const formAddNewCard = popupAddCard.querySelector('.form');
 formAddNewCard.addEventListener('submit', function(evt) {
   evt.preventDefault();
   const card = {
-      name: `${place.value}`,
-      link: `${image.value}`
+      name: place.value,
+      link: image.value
     };
   addCard(card);
   formAddNewCard.reset();
