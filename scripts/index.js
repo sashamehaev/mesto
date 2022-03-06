@@ -1,32 +1,7 @@
 import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
-//массив с фотографиями и названиями мест
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+import {initialCards} from './initial-cards.js';
+
 
 const validationConfig = {
   formSelector: '.form',
@@ -45,6 +20,9 @@ const formJob = popupEditProfile.querySelector('.form__input_type_job');
 const popupAddCard = document.querySelector('.popup_type_add');
 const popupAddCardPlace = popupAddCard.querySelector('.form__input_type_place');
 const popupAddCardImage = popupAddCard.querySelector('.form__input_type_link');
+const popupCard = document.querySelector('.popup_type_card');
+const popupCardClose = popupCard.querySelector('.popup__close');
+const cardContainer = document.querySelector('.elements');
 
 
 //закрыть попап
@@ -64,6 +42,12 @@ function handleEsc(evt) {
   if(evt.key==="Escape") {
     closePopup(document.querySelector('.popup_opened'));
   }
+}
+
+function addCard(item) {
+  const card = new Card(item, '#card', openPopup);
+  const cardElement = card.generateCard();
+  cardContainer.prepend(cardElement);
 }
 
 
@@ -110,11 +94,10 @@ popupAddCardForm.addEventListener('submit', (evt) => {
     name: popupAddCardPlace.value,
     link: popupAddCardImage.value
   };
-  const card = new Card(item, '#card');
-  const cardElement = card.generateCard();
-  document.querySelector('.elements').prepend(cardElement);
+  addCard(item);
   popupAddCardForm.reset();                                                                                                                                                     
   closePopup(popupAddCard);
+  popupAddCardForm.querySelector('.form__button').setAttribute('disabled', true);
 });
 
 //Закрыть попап "Добавить карточку"
@@ -122,6 +105,14 @@ const popupAddCardClose = popupAddCard.querySelector('.popup__close');
 popupAddCardClose.addEventListener('click', () => {
   closePopup(popupAddCard);
 });
+
+
+///////////////////////////////////////////////////////////// Закрыть попап с карточкой
+
+popupCardClose.addEventListener('click', () => {
+  closePopup(popupCard);
+});
+
 
 
 ///////////////////////////////////////////////////////////// Общее
@@ -138,16 +129,14 @@ overlayList.forEach((overlay) => {
 
 //отобразить карточки на странице
 initialCards.forEach((item) => {
-  const card = new Card(item, '#card');
-  const cardElement = card.generateCard();
-  document.querySelector('.elements').append(cardElement);
+  addCard(item);
 });
 
 //Сделать формы валидными
 const formList = Array.from(document.querySelectorAll('.form'));
 formList.forEach((item) => {
-  const formElement = new FormValidator(validationConfig, item);
-  formElement.enableValidation();
+   var formElement = new FormValidator(validationConfig, item);
+   formElement.enableValidation();
 });
 
 
