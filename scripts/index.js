@@ -97,7 +97,9 @@ popupAddCardForm.addEventListener('submit', (evt) => {
   addCard(item);
   popupAddCardForm.reset();                                                                                                                                                     
   closePopup(popupAddCard);
-  popupAddCardForm.querySelector('.form__button').setAttribute('disabled', true);
+  const popupAddCardFormButton = popupAddCardForm.querySelector('.form__button');
+  popupAddCardFormButton.classList.add(validationConfig.inactiveButtonClass);
+  popupAddCardFormButton.setAttribute('disabled', true);
 });
 
 //Закрыть попап "Добавить карточку"
@@ -134,10 +136,10 @@ initialCards.forEach((item) => {
 
 //Сделать формы валидными
 const formList = Array.from(document.querySelectorAll('.form'));
-formList.forEach((item) => {
-   var formElement = new FormValidator(validationConfig, item);
-   formElement.enableValidation();
-});
+const formProfileValidator = new FormValidator(validationConfig, formList[0]);
+formProfileValidator.enableValidation();
+const formCardValidator = new FormValidator(validationConfig, formList[1]);
+formCardValidator.enableValidation();
 
 
 
