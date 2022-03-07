@@ -135,11 +135,19 @@ initialCards.forEach((item) => {
 });
 
 //Сделать формы валидными
-const formList = Array.from(document.querySelectorAll('.form'));
-const formProfileValidator = new FormValidator(validationConfig, formList[0]);
+const formProfile = document.querySelector('.form_type_edit');
+const formProfileValidator = new FormValidator(validationConfig, formProfile);
 formProfileValidator.enableValidation();
-const formCardValidator = new FormValidator(validationConfig, formList[1]);
+
+
+const formCard = document.querySelector('.form_type_add');
+const formCardValidator = new FormValidator(validationConfig, formCard);
 formCardValidator.enableValidation();
+
+
+
+
+
 
 
 
