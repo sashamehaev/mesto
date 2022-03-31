@@ -3,26 +3,30 @@ const popupCard = document.querySelector('.popup_type_card');
 const popupCardImage = popupCard.querySelector('.popup__image');
 const popupCardPlace = popupCard.querySelector('.popup__place');
 
-export class Card {
-  constructor(data, cardSelector, openPopup) {
-    this._openPopup = openPopup;
+export default class Card {
+  constructor(data, cardSelector, {handleCardClick}) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._cardElement = document
+    this._handleCardClick = handleCardClick;
+  }
+
+  _getTemplate() {
+    const cardElement = document
     .querySelector(this._cardSelector)
     .content
     .querySelector('.element')
     .cloneNode(true);
+
+    return cardElement;
   }
 
   generateCard() {
-    this._element = this._cardElement;
+    this._element = this._getTemplate();
     this._setEventListeners();
     this._element.querySelector('.element__image').src = this._link;
     this._element.querySelector('.element__image').alt = this._name;
     this._element.querySelector('.element__title').textContent = this._name;
-    
     return this._element;
   }
   
@@ -44,7 +48,7 @@ export class Card {
 
   _setEventListeners() {
     this._element.querySelector('.element__image').addEventListener('click', () => {
-      this._handleOpenPopup();
+      this._handleCardClick();
     });
 
     this._element.querySelector('.element__like').addEventListener('click', (evt) => {
