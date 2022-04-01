@@ -1,8 +1,3 @@
-//Попап открытой карточки
-const popupCard = document.querySelector('.popup_type_card');
-const popupCardImage = popupCard.querySelector('.popup__image');
-const popupCardPlace = popupCard.querySelector('.popup__place');
-
 export default class Card {
   constructor(data, cardSelector, {handleCardClick}) {
     this._name = data.name;
@@ -29,13 +24,6 @@ export default class Card {
     this._element.querySelector('.element__title').textContent = this._name;
     return this._element;
   }
-  
-  _handleOpenPopup() {
-    popupCardImage.src = this._link;
-    popupCardImage.alt = this._name;
-    popupCardPlace.textContent = this._name;
-    this._openPopup(popupCard);
-  }
 
   _toggleLikeButton(evt) {
     evt.target.classList.toggle('element__like_active');
@@ -48,7 +36,7 @@ export default class Card {
 
   _setEventListeners() {
     this._element.querySelector('.element__image').addEventListener('click', () => {
-      this._handleCardClick();
+      this._handleCardClick(this._link, this._name);
     });
 
     this._element.querySelector('.element__like').addEventListener('click', (evt) => {
