@@ -13,15 +13,21 @@
     <main>
       <section class="profile">
         <div class="profile__container">
-          <img src="<%=require('./images/Avatar.png')%>" alt="Фото профиля" class="profile__avatar">
+          <div class="profile__container-avatar">
+            <div class="profile__edit-photo-container">
+              <img src="<%=require('./images/pen.svg')%>" class="profile__edit-photo">
+            </div>
+            <img src="" alt="Фото профиля" class="profile__avatar">
+          </div>
+          
           <div class="profile__info">
             <div class="profile__info-container">
-              <h1 class="profile__name">Жак-Ив-Кусто</h1>
+              <h1 class="profile__name"></h1>
               <button type="button" class="profile__edit-button">
                 <img src="<%=require('./images/edit-button.svg')%>" alt="Кнопка редактировать профиль" class="profile__edit-button-img">
               </button>
             </div>
-            <p class="profile__job">Исследователь океана</p>
+            <p class="profile__job"></p>
           </div>
         </div>
         <button type="button" class="profile__add-button">
@@ -79,13 +85,41 @@
       </div>
     </div>
 
+    <div class="popup popup_type_delete">
+      <div class="popup__container">
+        <form class="form form_type_delete" novalidate>
+          <h2 class="form__title form__title_type_delete">Вы уверены?</h2>
+          <input type="hidden" name="cardId" class="form__input form__input_type_cardId">
+          <button type="submit" class="form__button form__button_type_delete">Да</button>
+        </form>
+        <button type="button" class="popup__close"></button> 
+      </div>
+    </div>
+
+    <div class="popup popup_type_avatar">
+      <div class="popup__container">
+        <form class="form form_type_avatar" novalidate>
+          <h2 class="form__title">Обновить аватар</h2>
+          <label class="form__field">
+            <input id="link-input" type="url" name="link" placeholder="Ссылка на картинку" class="form__input form__input_type_link" required>
+            <span class="link-input-error form__input-error"></span>
+          </label>
+          <button type="submit" class="form__button form__button_disabled">Сохранить</button>
+        </form>
+        <button type="button" class="popup__close"></button> 
+      </div>
+    </div>
+
     <template id="card">
       <div class="element">
         <button class="element__delete"></button>
         <img src="#" alt="#" class="element__image">
         <div class="element__description">
           <h2 class="element__title"></h2>
-          <button type="button" class="element__like"></button>
+          <div class="element__like-container">
+            <button type="button" class="element__like"></button>
+            <p class="element__like-value"></p>
+          </div>
         </div>
       </div>
     </template>
