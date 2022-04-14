@@ -11,7 +11,7 @@ module.exports = {
             publicPath: ''
     },
 
-    mode: 'development',
+    mode: 'production',
 
     devServer: {
         static: path.resolve(__dirname, './dist'), 
