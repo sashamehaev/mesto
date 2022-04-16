@@ -5,18 +5,22 @@ export default class Api {
         this._renderCards = renderCards;
     }
 
-    getUserCard() {
+    _getResponse(res) {
+        if(res.ok) {
+            return res.json();
+        }
+        
+        return Promise.reject(`Ошибка: ${res.status}`);
+    }
+
+    getUserInfo() {
         return fetch(`${this._baseUrl}/users/me`, {
             headers: {
                 authorization: this._authorization
             }
         })
         .then((res) => {
-            if(res.ok) {
-                return res.json();
-            }
-            
-            return Promise.reject(`Ошибка: ${res.status}`);
+            return this._getResponse(res);
         });
     }
 
@@ -27,11 +31,7 @@ export default class Api {
             }
         })
         .then((res) => {
-            if(res.ok) {
-                return res.json();
-            }
-
-            return Promise.reject(`Ошибка: ${res.status}`);
+            return this._getResponse(res);
         });
     }
 
@@ -45,11 +45,7 @@ export default class Api {
             body: JSON.stringify(item)
         })
         .then((res) => {
-            if(res.ok) {
-                return res.json();
-            }
-            
-            return Promise.reject(`Ошибка: ${res.status}`);
+            return this._getResponse(res);
         });
     }
 
@@ -63,11 +59,7 @@ export default class Api {
             body: JSON.stringify(item)
         })
         .then((res) => {
-            if(res.ok) {
-                return res.json();
-            }
-            
-            return Promise.reject(`Ошибка: ${res.status}`);
+            return this._getResponse(res);
         });
     }
 
@@ -80,11 +72,7 @@ export default class Api {
             },
         })
         .then((res) => {
-            if(res.ok) {
-                return res.json();
-            }
-            
-            return Promise.reject(`Ошибка: ${res.status}`);
+            return this._getResponse(res);
         }); 
     }
 
@@ -97,11 +85,7 @@ export default class Api {
             },
         })
         .then((res) => {
-            if(res.ok) {
-                return res.json();
-            }
-            
-            return Promise.reject(`Ошибка: ${res.status}`);
+            return this._getResponse(res);
         });
     }
 
@@ -114,11 +98,7 @@ export default class Api {
             },
         })
         .then((res) => {
-            if(res.ok) {
-                return res.json();
-            }
-            
-            return Promise.reject(`Ошибка: ${res.status}`);
+            return this._getResponse(res);
         });
     }
 
@@ -134,11 +114,7 @@ export default class Api {
             })
         })
         .then((res) => {
-            if(res.ok) {
-                return res.json();
-            }
-            
-            return Promise.reject(`Ошибка: ${res.status}`);
+            return this._getResponse(res);
         });
     }
 }
