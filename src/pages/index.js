@@ -48,14 +48,6 @@ const cardList = new Section({
 
 let Id = '';
 
-api.getUserInfo()
-  .then((res) => {
-    Id = res._id;
-  });
-
-
-
-
 const createCard = (item) => {
   const card = new Card(item, Id, '#card', {
     handleCardClick: (link, name) => {
@@ -92,6 +84,7 @@ const createCard = (item) => {
 api.getUserInfo()
   .then((item) => {
     user.setUserInfo(item);
+    Id = item._id;
     api.getInitialsCard()
       .then((item) => {
         cardList.renderItems(item);
